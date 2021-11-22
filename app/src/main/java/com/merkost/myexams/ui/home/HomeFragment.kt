@@ -27,10 +27,6 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
-    private val handler: Handler = Handler()
-    private var runnable: Runnable? = null
-    private val EVENT_DATE_TIME = "2021-12-31 10:30:00"
-    private val DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -57,44 +53,16 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    private fun countDownStart() {
+        binding.cdnDays.text = homeViewModel.days.value
+        binding.cdnHours.text = homeViewModel.hours.value
+        binding.cdnMins.text = homeViewModel.minutes.value
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    private fun countDownStart() {
-        runnable = object : Runnable {
-            override fun run() {
-                try {
-                    handler.postDelayed(this, 1000)
-                    val dateFormat = SimpleDateFormat(DATE_FORMAT)
-                    val event_date: Date = dateFormat.parse(EVENT_DATE_TIME)
-                    val current_date = Date()
-                    if (!current_date.after(event_date)) {
-                        val diff: Long = event_date.getTime() - current_date.getTime()
-                        val Days = diff / (24 * 60 * 60 * 1000)
-                        val Hours = diff / (60 * 60 * 1000) % 24
-                        val Minutes = diff / (60 * 1000) % 60
-                        val Seconds = diff / 1000 % 60
-                        //
-                        binding.cdnDays.text = String.format("%02d", Days)
-                        binding.cdnHours.text = String.format("%02d", Hours)
-                        binding.cdnMins.text = String.format("%02d", Minutes)
-                    } else {
-                        /*linear_layout_1!!.visibility = View.VISIBLE
-                        linear_layout_2.setVisibility(View.GONE)*/
-                        runnable?.let { handler.removeCallbacks(it) }
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
-        handler.postDelayed(runnable as Runnable, 0)
-    }
 
-    override fun onStop() {
-        super.onStop()
-        runnable?.let { handler.removeCallbacks(it) }
-    }
 }
