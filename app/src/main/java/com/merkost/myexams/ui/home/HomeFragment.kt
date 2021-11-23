@@ -1,28 +1,16 @@
 package com.merkost.myexams.ui.home
 
-import android.icu.text.DateFormatSymbols.FORMAT
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextClock
-import android.widget.TextView
-import com.merkost.myexams.model.entity.Class
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.merkost.myexams.R
-import com.merkost.myexams.databinding.FragmentHomeBinding
-import android.os.CountDownTimer
-import java.util.concurrent.TimeUnit
-import android.os.Handler
-
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.lang.Exception
-import java.text.SimpleDateFormat
-import java.util.*
+import com.merkost.myexams.databinding.FragmentHomeBinding
+import com.merkost.myexams.model.entity.Class
+import com.merkost.myexams.model.entity.Homework
 
 
 class HomeFragment : Fragment() {
@@ -31,13 +19,10 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
 
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var adapter: ClassesRVadapter
+    private lateinit var classesAdapter: ClassesRVadapter
+    private lateinit var homeworkAdapter: HomeworkRVadapter
 
-    val testData = mutableListOf(Class()).apply {
-        (1..5).forEach { add(Class()) }
-    }
-
-    // This property is only valid between onCreateView and
+        // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
@@ -54,22 +39,27 @@ class HomeFragment : Fragment() {
 
         countDownStart()
         initClassesRV()
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        initHomeworkRV()
 
         return root
+    }
+
+    private fun initHomeworkRV() {
+        linearLayoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        binding.homeworkRV.layoutManager = linearLayoutManager
+        homeworkAdapter = HomeworkRVadapter()
+        binding.homeworkRV.adapter = homeworkAdapter
+
+        homeworkAdapter.setData(homeViewModel.homeworkTestData)
     }
 
     private fun initClassesRV() {
         linearLayoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         binding.classesRV.layoutManager = linearLayoutManager
-        adapter = ClassesRVadapter()
-        binding.classesRV.adapter = adapter
+        classesAdapter = ClassesRVadapter()
+        binding.classesRV.adapter = classesAdapter
 
-        adapter.setData(testData)
+        classesAdapter.setData(homeViewModel.classesTestData)
 
     }
 

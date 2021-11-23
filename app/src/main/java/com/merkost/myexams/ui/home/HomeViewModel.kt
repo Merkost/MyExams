@@ -8,8 +8,8 @@ import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.lifecycle.MutableLiveData
-
-
+import com.merkost.myexams.model.entity.Class
+import com.merkost.myexams.model.entity.Homework
 
 
 class HomeViewModel : ViewModel() {
@@ -30,7 +30,13 @@ class HomeViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
+    val classesTestData = mutableListOf(Class()).apply {
+        (1..5).forEach { add(Class()) }
+    }
 
+    val homeworkTestData = mutableListOf(Homework()).apply {
+        (1..5).forEach { add(Homework()) }
+    }
 
 
 
