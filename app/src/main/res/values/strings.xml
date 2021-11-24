@@ -3,4 +3,18 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="test_lesson">Lesson 13:30 - 14:30</string>
+    <string name="search">Search</string>
+    <string name="subject">Subject</string>
+    <string name="test_time">9:00 - 10:30</string>
+    <string name="test_days_left">2 days left</string>
+    <string name="ready">Are you ready for the exams?</string>
+    <string name="test_timer">22</string>
+    <string name="timer_format">hh:mm:ss</string>
+    <string name="timer_divider">:</string>
+    <string name="days">Days</string>
+    <string name="hours">Hours</string>
+    <string name="mins">Mins</string>
+    <string name="lessons">Lessons</string>
+    <string name="homework">Homework</string>
 </resources>

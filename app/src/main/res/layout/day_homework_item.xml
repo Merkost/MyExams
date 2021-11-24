@@ -10,16 +10,16 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lesson    13:30 - 14:30"
+        android:text="@string/test_lesson"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
-        android:elevation="12dp"
-        app:cardCornerRadius="20dp"
+        android:layout_height="@dimen/card_height"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/card_corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
             android:id="@+id/skypeBtn"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:text="Search"
+            android:text="@string/search"
             android:layout_gravity="end"
             android:drawableLeft="@android:drawable/dialog_holo_dark_frame"
             android:drawableTint="@color/blue"
@@ -40,16 +40,17 @@
         </com.google.android.material.button.MaterialButton>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="300dp"
+            android:layout_width="@dimen/inside_card_width"
             android:layout_height="match_parent"
-            android:layout_margin="20dp">
+            android:layout_margin="@dimen/inside_card_margin">
 
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/image_in_card"
+                android:layout_height="@dimen/image_in_card"
                 android:src="@drawable/ic_launcher_foreground"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,8 +58,8 @@
                 android:id="@+id/titleTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="5dp"
                 android:text="Subject"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

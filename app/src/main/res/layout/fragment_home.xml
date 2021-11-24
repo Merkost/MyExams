@@ -8,12 +8,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/timerLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="45dp"
+        android:layout_marginStart="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:layout_marginEnd="@dimen/card_margin"
+        app:cardCornerRadius="@dimen/main_card_corner_radius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,15 +23,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="30dp"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="@dimen/inside_card_margin"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Are you ready for the exams?"
-                android:textSize="20sp"
+                android:text="@string/ready"
+                android:textSize="@dimen/title_text_size"
                 app:layout_constraintBottom_toTopOf="@+id/cdnHours"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,16 +41,15 @@
                 android:id="@+id/cdnDays"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginStart="44dp"
+                android:layout_margin="@dimen/timer_margin"
+                android:layout_marginStart="50dp"
                 android:layout_weight="1"
-                android:format24Hour="hh:mm:ss"
-                android:text="22"
+                android:format24Hour="@string/timer_format"
+                android:text="@string/test_timer"
                 android:textAlignment="center"
-                android:textSize="50sp"
+                android:textSize="@dimen/timer_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView5"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -60,11 +59,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text=":"
-                android:textSize="50sp"
+                android:text="@string/timer_divider"
+                android:textSize="@dimen/timer_text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/cdnHours"
                 app:layout_constraintEnd_toStartOf="@+id/cdnMins"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/cdnHours"
                 app:layout_constraintTop_toTopOf="@+id/cdnHours" />
 
@@ -73,30 +71,26 @@
                 android:id="@+id/cdnHours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/timer_margin"
                 android:layout_marginStart="32dp"
-                android:layout_weight="1"
-                android:format24Hour="hh:mm:ss"
-                android:text="22"
+                android:format24Hour="@string/timer_format"
+                android:text="@string/test_timer"
                 android:textAlignment="center"
-                android:textSize="50sp"
+                android:textSize="@dimen/timer_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.505" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text=":"
-                android:textSize="50sp"
+                android:text="@string/timer_divider"
+                android:textSize="@dimen/timer_text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/cdnHours"
                 app:layout_constraintEnd_toStartOf="@+id/cdnHours"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/cdnDays"
                 app:layout_constraintTop_toTopOf="@+id/cdnHours" />
 
@@ -104,25 +98,22 @@
                 android:id="@+id/cdnMins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginEnd="76dp"
-                android:layout_weight="1"
-                android:format24Hour="hh:mm:ss"
-                android:text="22"
+                android:layout_margin="@dimen/timer_margin"
+                android:layout_marginEnd="50dp"
+                android:format24Hour="@string/timer_format"
+                android:text="@string/test_timer"
                 android:textAlignment="center"
-                android:textSize="50sp"
+                android:textSize="@dimen/timer_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.51" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Days"
+                android:text="@string/days"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cdnDays"
                 app:layout_constraintStart_toStartOf="@+id/cdnDays"
@@ -132,7 +123,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hours"
+                android:text="@string/hours"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cdnHours"
                 app:layout_constraintHorizontal_bias="0.611"
@@ -142,7 +133,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mins"
+                android:text="@string/mins"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cdnMins"
                 app:layout_constraintStart_toStartOf="@+id/cdnMins"
@@ -160,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Занятия"
+        android:text="@string/lessons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timerLayout" />
 
@@ -171,7 +162,6 @@
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classesTV" />
 
@@ -181,7 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Домашние задания"
+        android:text="@string/homework"
         app:layout_constraintStart_toStartOf="@+id/classesRV"
         app:layout_constraintTop_toBottomOf="@+id/classesRV" />
 
